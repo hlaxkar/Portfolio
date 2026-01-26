@@ -50,7 +50,7 @@ body {
     pointer-events: none;
     position: fixed;
     inset: 0;
-    z-index: 50;
+    z-index: 90;
 }
 
 .cursor-dot {
@@ -80,7 +80,7 @@ body {
 .three-bg {
     position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: -20;
     pointer-events: none;
     /* Let UI be clickable */
 }
