@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Harshit Laxkar | Full Stack Developer Portfolio
 
-## Getting Started
+This is a professional portfolio website built with **Next.js 15**, **React 19**, and **Tailwind CSS 4**. It features rich 3D interactions using **Three.js** (`@react-three/fiber`), SEO optimization, and a modern, responsible design to showcase my skills, projects, and experience.
 
-First, run the development server:
+## 🚀 Features
+
+*   **Modern Tech Stack:** Built with the latest Next.js 15 App Router and React 19.
+*   **3D Visuals:** Integrated 3D elements using Three.js and `@react-three/drei` for an immersive experience.
+*   **Responsive Design:** Fully responsive layout styled with Tailwind CSS v4.
+*   **Performance:** Optimized for speed with Vercel Speed Insights.
+*   **Analytics:** Integrated Vercel Analytics to track user engagement.
+*   **SEO Friendly:** Metadata managed via `next-seo` and `next-sitemap` for better search visibility.
+
+## 🛠️ Tech Stack
+
+*   **Framework:** [Next.js 15](https://nextjs.org/)
+*   **Library:** [React 19](https://react.dev/)
+*   **Language:** [TypeScript](https://www.typescriptlang.org/)
+*   **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
+*   **3D Graphics:** [Three.js](https://threejs.org/) / [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
+*   **Deployment:** [Vercel](https://vercel.com)
+
+## 📂 Sections
+
+The application is structured into the following key sections:
+
+*   **Hero:** Introduction and visual hook.
+*   **About:** Professional background and bio.
+*   **Experience:** Work history and career timeline.
+*   **Projects:** Showcase of key projects and contributions.
+*   **Skills:** Technical proficiency and tools.
+*   **Contact:** Ways to get in touch.
+
+## 🏃‍♂️ Getting Started
+
+Follow these steps to set up the project locally on your machine.
+
+### Prerequisites
+
+*   Node.js (v18 or later recommended)
+*   npm or yarn
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/hlaxkar/portfolio.git
+    cd portfolio
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
+
+### Running Locally
+
+Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To create an optimized production build:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+This generates the `.next` folder with the production artifacts. You can start the production server with:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📜 Scripts
 
-## Deploy on Vercel
+*   `npm run dev`: Starts the development server.
+*   `npm run build`: Builds the application for production and generates the sitemap.
+*   `npm run start`: Starts the production server.
+*   `npm run lint`: Runs ESLint to check for code quality issues.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+├── public/          # Static assets
+├── src/
+│   ├── app/         # Next.js App Router pages and layouts
+│   │   ├── components/  # Reusable UI components (Hero, About, etc.)
+│   │   ├── layout.tsx   # Root layout
+│   │   └── page.tsx     # Main landing page
+│   └── types/       # TypeScript type definitions
+├── tailwind.config.ts  # Tailwind CSS configuration
+├── next.config.ts      # Next.js configuration
+└── package.json        # Project dependencies and scripts
+```
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
