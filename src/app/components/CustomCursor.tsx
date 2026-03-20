@@ -53,8 +53,8 @@ const CustomCursor: React.FC = () => {
                 dotRef.current.style.opacity = isVisible ? '1' : '0';
             }
 
-            // Ring follows with more lag for a fluid feel
-            const ringLerp = 0.6;
+            // Ring follows cursor — 0.9 = snappy (2 frames to catch up at 60fps)
+            const ringLerp = 0.9;
             ringXRef.current += (targetXRef.current - ringXRef.current) * ringLerp;
             ringYRef.current += (targetYRef.current - ringYRef.current) * ringLerp;
 

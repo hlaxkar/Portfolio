@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import ScrollAnimator from './ScrollAnimator';
+import { motion } from 'framer-motion';
 
 interface Project {
     title: string;
@@ -55,84 +55,127 @@ const projectsData: Project[] = [
     },
 ];
 
-const roleBadgeColor: Record<string, string> = {
-    "Backend":    "bg-blue-500/20 text-blue-300 border-blue-500/30",
-    "Full Stack": "bg-violet-500/20 text-violet-300 border-violet-500/30",
-    "ML":         "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+const roleBadgeStyle: Record<string, { bg: string; text: string; border: string }> = {
+    "Backend":    { bg: 'rgba(59, 130, 246, 0.1)',  text: '#3b82f6', border: 'rgba(59, 130, 246, 0.3)' },
+    "Full Stack": { bg: 'rgba(var(--accent-rgb), 0.1)', text: 'var(--accent)', border: 'rgba(var(--accent-rgb), 0.3)' },
+    "ML":         { bg: 'rgba(16, 185, 129, 0.1)',  text: '#10b981', border: 'rgba(16, 185, 129, 0.3)' },
 };
 
 const Projects: React.FC = () => {
-    const featured = projectsData.filter(p => p.featured);
-    const rest = projectsData.filter(p => !p.featured);
     const [expanded, setExpanded] = useState<string | null>(null);
 
     return (
-        <ScrollAnimator>
-            <section id="projects" className="py-20">
-                <h2 className="text-4xl font-bold text-white mb-12 flex items-center">
-                    <span className="text-violet-400 mr-3">03.</span> Things I&apos;ve Built
-                </h2>
+        <motion.section
+            id="projects"
+            className="py-20"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5 }}
+        >
+            <h2 className="text-4xl font-bold mb-12 flex items-center" style={{ color: 'var(--text)' }}>
+                <span style={{ color: 'var(--accent)' }} className="mr-3">03.</span> Things I&apos;ve Built
+            </h2>
 
-                {/* Featured projects */}
-                <div className="space-y-6 mb-12">
-                    {featured.map((project) => (
-                        <div key={project.title} className="glass-effect rounded-xl p-6 md:p-8 border border-white/10 hover:border-violet-400/60 transition duration-300">
-                            <div className="flex flex-col md:flex-row md:gap-10">
-                                <div className="flex-1">
-                                    <div className="flex items-center gap-2 mb-3 flex-wrap">
-                                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full border bg-violet-500/10 text-violet-300 border-violet-500/30">Featured</span>
-                                        <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${roleBadgeColor[project.role] ?? ''}`}>{project.role}</span>
-                                    </div>
-                                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3">{project.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed">{project.description}</p>
-                                </div>
-                                <div className="mt-6 md:mt-0 md:w-52 flex flex-col gap-4 shrink-0">
-                                    {project.impact && (
-                                        <div className="rounded-lg px-4 py-3 bg-violet-500/10 border border-violet-400/20">
-                                            <p className="text-xs text-slate-500 mb-1 uppercase tracking-wide">Impact</p>
-                                            <p className="text-sm font-semibold text-violet-300">{project.impact}</p>
-                                        </div>
-                                    )}
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.tags.map(tag => (
-                                            <span key={tag} className="text-xs font-mono px-2 py-1 rounded-md bg-slate-800/80 text-slate-300 border border-white/10">{tag}</span>
-                                        ))}
-                                    </div>
-                                </div>
+            {/* Bento Grid */}
+            <div className="bento-grid">
+                {projectsData.map((project, index) => {
+                    const isFeatured = project.featured;
+                    const isExpanded = expanded === project.title;
+                    const badge = roleBadgeStyle[project.role] ?? roleBadgeStyle["Full Stack"];
+
+                    return (
+                        <motion.div
+                            key={project.title}
+                            className={`card p-6 flex flex-col ${isFeatured ? 'bento-featured' : ''}`}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.08, type: 'spring', stiffness: 80, damping: 20 }}
+                            whileHover={{ y: -4 }}
+                        >
+                            <div className="flex items-center gap-2 mb-3 flex-wrap">
+                                {isFeatured && (
+                                    <span
+                                        className="text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                                        style={{
+                                            backgroundColor: 'rgba(var(--accent-rgb), 0.1)',
+                                            color: 'var(--accent)',
+                                            border: '1px solid rgba(var(--accent-rgb), 0.3)',
+                                        }}
+                                    >
+                                        Featured
+                                    </span>
+                                )}
+                                <span
+                                    className="text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                                    style={{
+                                        backgroundColor: badge.bg,
+                                        color: badge.text,
+                                        border: `1px solid ${badge.border}`,
+                                    }}
+                                >
+                                    {project.role}
+                                </span>
                             </div>
-                        </div>
-                    ))}
-                </div>
 
-                {/* Other projects */}
-                <p className="text-slate-500 text-xs uppercase tracking-widest mb-6 font-medium">Other Noteworthy Projects</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {rest.map((project) => {
-                        const isExpanded = expanded === project.title;
-                        return (
-                            <div key={project.title} className="glass-effect rounded-xl p-5 flex flex-col border border-white/10 hover:border-violet-400/60 transition duration-300 transform hover:-translate-y-1">
-                                <div className="flex items-center justify-between mb-3">
-                                    <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${roleBadgeColor[project.role] ?? ''}`}>{project.role}</span>
-                                </div>
-                                <h3 className="text-base font-bold text-white mb-2">{project.title}</h3>
-                                <p className={`text-slate-400 text-sm mb-2 ${!isExpanded ? 'line-clamp-2' : ''}`}>{project.description}</p>
+                            <h3
+                                className={`font-bold mb-3 ${isFeatured ? 'text-xl md:text-2xl' : 'text-base'}`}
+                                style={{ color: 'var(--text)' }}
+                            >
+                                {project.title}
+                            </h3>
+
+                            <p
+                                className={`leading-relaxed mb-3 ${isFeatured ? 'text-base' : 'text-sm'} ${!isFeatured && !isExpanded ? 'line-clamp-2' : ''}`}
+                                style={{ color: 'var(--text-secondary)' }}
+                            >
+                                {project.description}
+                            </p>
+
+                            {!isFeatured && (
                                 <button
                                     onClick={() => setExpanded(isExpanded ? null : project.title)}
-                                    className="text-xs text-violet-400 hover:text-violet-300 mb-4 text-left transition clickable"
+                                    className="text-xs mb-3 text-left transition clickable"
+                                    style={{ color: 'var(--accent)' }}
                                 >
                                     {isExpanded ? '— Show less' : '+ Read more'}
                                 </button>
-                                <div className="flex flex-wrap gap-1.5 mt-auto">
-                                    {project.tags.map(tag => (
-                                        <span key={tag} className="text-xs font-mono px-2 py-0.5 rounded bg-slate-800/80 text-slate-400 border border-white/10">{tag}</span>
-                                    ))}
+                            )}
+
+                            {project.impact && (
+                                <div
+                                    className="rounded-lg px-4 py-3 mb-4"
+                                    style={{
+                                        backgroundColor: 'rgba(var(--accent-rgb), 0.06)',
+                                        border: '1px solid rgba(var(--accent-rgb), 0.15)',
+                                    }}
+                                >
+                                    <p className="text-xs uppercase tracking-wide mb-1" style={{ color: 'var(--text-muted)' }}>Impact</p>
+                                    <p className="text-sm font-semibold" style={{ color: 'var(--accent)' }}>{project.impact}</p>
                                 </div>
+                            )}
+
+                            <div className="flex flex-wrap gap-1.5 mt-auto">
+                                {project.tags.map(tag => (
+                                    <span
+                                        key={tag}
+                                        className="text-xs font-mono px-2 py-0.5 rounded-md"
+                                        style={{
+                                            backgroundColor: 'var(--bg-muted)',
+                                            color: 'var(--text-secondary)',
+                                            border: '1px solid var(--border)',
+                                        }}
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
                             </div>
-                        );
-                    })}
-                </div>
-            </section>
-        </ScrollAnimator>
+                        </motion.div>
+                    );
+                })}
+            </div>
+        </motion.section>
     );
 };
 
