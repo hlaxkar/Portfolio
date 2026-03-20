@@ -7,10 +7,18 @@ body {
 }
 
 .glass-effect {
-    background: rgba(17, 24, 39, 0.5);
+    background: rgba(17, 24, 39, 0.55);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Gradient section divider */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(167, 139, 250, 0.25), transparent);
+    margin: 0 auto;
+    width: 80%;
 }
 
 .glow-effect {
@@ -50,7 +58,7 @@ body {
     pointer-events: none;
     position: fixed;
     inset: 0;
-    z-index: 90;
+    z-index: 110;
 }
 
 .cursor-dot {
@@ -60,7 +68,6 @@ body {
     border-radius: 50%;
     background: #a78bfa;
     box-shadow: 0 0 8px rgba(167, 139, 250, 0.8);
-    mix-blend-mode: screen;
     will-change: transform, opacity;
     transition: opacity 0.2s ease;
 }

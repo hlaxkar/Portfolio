@@ -9,12 +9,17 @@ const Home: React.FC = () => {
     return (
         <>
             <Hero />
+            <div className="section-divider" />
             <About />
+            <div className="section-divider" />
             <Experience />
+            <div className="section-divider" />
             <Projects />
+            <div className="section-divider" />
             <Skills />
+            <div className="section-divider" />
             <Contact />
         </>
     );
 }
-export default Home; // In a real app, this would be exported.
+export default Home;
