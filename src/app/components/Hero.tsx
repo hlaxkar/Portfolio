@@ -4,12 +4,17 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Avatar3DClient from './Avatar3DClient';
 
-const roles = ['Full Stack Developer', 'Backend Engineer'];
+const roles = [
+    'Software Development Engineer',
+    'Distributed Systems & Backend',
+    'Full Stack Developer',
+    'Cloud-Native & Streaming',
+];
 
 const stats = [
     { num: '3+', label: 'Years Experience' },
-    { num: '6+', label: 'Projects Built' },
-    { num: '3', label: 'Companies' },
+    { num: '3,000+', label: 'Live Devices Streamed' },
+    { num: '600+', label: 'REST APIs Optimized' },
 ];
 
 const Hero: React.FC = () => {
@@ -61,7 +66,7 @@ const Hero: React.FC = () => {
 
                     {/* Typewriter */}
                     <h2
-                        className="text-3xl md:text-5xl font-extrabold mb-6 min-h-[1.2em] animate-fade-in-up"
+                        className="text-2xl md:text-4xl font-extrabold mb-6 min-h-[1.4em] animate-fade-in-up"
                         style={{ animationDelay: '160ms' }}
                     >
                         <span className="gradient-text">{displayed}</span>
@@ -72,7 +77,7 @@ const Hero: React.FC = () => {
                         className="text-lg max-w-xl mb-8 animate-fade-in-up"
                         style={{ color: 'var(--text-secondary)', animationDelay: '240ms' }}
                     >
-                        I&apos;m a passionate Full Stack Developer with a knack for creating dynamic, scalable web applications. With expertise in the MEAN stack and a focus on clean code and performance, I turn complex problems into elegant digital solutions.
+                        Software Development Engineer with nearly 3 years of experience building high-throughput microservices, distributed telemetry pipelines, and cloud-native systems. Hands-on expertise in event-driven architectures with Apache Kafka, OpenTelemetry observability, and full-stack performance optimization.
                     </p>
 
                     {/* Stat strip */}
@@ -93,27 +98,45 @@ const Hero: React.FC = () => {
                         style={{ animationDelay: '360ms' }}
                     >
                         <motion.a
-                            href="https://github.com/hlaxkar"
+                            href="/Harshit_Laxkar_Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-semibold px-6 py-3 rounded-xl flex items-center space-x-2"
+                            className="font-semibold px-6 py-3 rounded-xl flex items-center space-x-2 shadow-sm"
                             style={{ backgroundColor: 'var(--accent)', color: '#fff' }}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.97 }}
                         >
+                            <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1.1em" width="1.1em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <span>Resume</span>
+                        </motion.a>
+                        <motion.a
+                            href="https://github.com/hlaxkar"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold px-6 py-3 rounded-xl flex items-center space-x-2 border"
+                            style={{ borderColor: 'var(--border)', color: 'var(--text)', backgroundColor: 'var(--bg-card)' }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.97 }}
+                        >
                             <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                            <span>View GitHub</span>
+                            <span>GitHub</span>
                         </motion.a>
                         <motion.a
                             href="https://linkedin.com/in/hlaxkar"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-semibold px-6 py-3 rounded-xl border"
-                            style={{ borderColor: 'var(--border)', color: 'var(--text)' }}
+                            style={{ borderColor: 'var(--border)', color: 'var(--text)', backgroundColor: 'var(--bg-card)' }}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.97 }}
                         >
-                            Connect on LinkedIn
+                            <span>LinkedIn</span>
                         </motion.a>
                     </div>
                 </div>

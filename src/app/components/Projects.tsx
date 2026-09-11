@@ -14,51 +14,58 @@ interface Project {
 
 const projectsData: Project[] = [
     {
-        title: "Deal Maker System Migration",
-        description: "Complete backend migration of a legacy CRM from Laravel/PostgreSQL to a modern Node.js/MySQL stack. Redesigned the API architecture and query layer to support high-traffic enterprise workloads, resulting in a dramatic performance improvement.",
-        tags: ["Node.js", "Express", "MySQL", "React", "Redis"],
+        title: "Distributed Telemetry & Kafka Streaming Pipeline",
+        description: "Architected an extensible, vendor-agnostic microservice ingestion framework streaming high-frequency external webhook telemetry to Apache Kafka at ~500 events/min with zero-downtime onboarding. Designed a publish-first, persist-async architecture with automated event replay and OpenTelemetry distributed tracing.",
+        tags: ["Apache Kafka", "OpenTelemetry", "Fastify", "Node.js", "Docker", "Event Replay"],
+        role: "Distributed Systems",
+        impact: "~500 events/min · Zero-downtime feed onboarding",
+        featured: true,
+    },
+    {
+        title: "Real-Time Video Telematics & Device Platform",
+        description: "Owned end-to-end development of a full-stack platform processing real-time telemetry streams from 3,000+ network-connected cameras across 17 signal types. Engineered multi-region concurrent processing with automated anomaly detection and ticketing.",
+        tags: ["React", "Node.js", "WebSockets", "OpenTelemetry", "Redis"],
+        role: "Real-Time / Streaming",
+        impact: "3,000+ cameras · 25–50 streams/sec",
+        featured: true,
+    },
+    {
+        title: "Enterprise CRM Backend Modernization",
+        description: "Led the migration and re-architecture of an enterprise CRM from legacy PHP to high-throughput Node.js microservices with MySQL. Redesigned schemas and optimized 600+ REST APIs using Redis caching and parallel query execution.",
+        tags: ["Node.js", "MySQL", "Redis", "REST APIs", "Microservices"],
         role: "Backend",
-        impact: "25s → 200ms API response",
-        featured: true,
+        impact: "600+ APIs · p99 cut from 25s → 200ms",
     },
     {
-        title: "Proteba — Health Report Dashboard",
-        description: "Full-stack health analytics platform for customers to visualize biological scores, receive AI-powered nutrition recommendations, and build personalized diet charts generated from lab data.",
-        tags: ["Angular", "PHP", "MySQL", "Data Visualisation"],
+        title: "Intelligent Recommendation & ML Engine",
+        description: "Engineered a data-driven recommendation engine using Python and K-Nearest Neighbors (KNN) algorithms, optimizing memory footprint and execution latency for real-time multidimensional data analysis.",
+        tags: ["Python", "KNN", "Pandas", "Scikit-Learn", "REST APIs"],
+        role: "ML / Analytics",
+        impact: "Real-time multidimensional scoring",
+    },
+    {
+        title: "Proteba — Clinical Biomarker Dashboard",
+        description: "Engineered client-facing Single Page Applications (SPAs) in Angular backed by modular RESTful APIs and relational MySQL databases, implementing responsive dashboards, state management, and role-based access control (RBAC).",
+        tags: ["Angular", "Python", "MySQL", "RBAC", "REST APIs"],
         role: "Full Stack",
-        impact: "Patient-facing clinical platform",
-        featured: true,
+        impact: "Patient & doctor clinical SPA",
     },
     {
-        title: "ScreenDuck Movie Tracker",
-        description: "A movie review and tracking website built from scratch using the TMDB API, featuring user lists and bookmarks.",
-        tags: ["PHP", "MySQL", "HTML/CSS", "REST API"],
-        role: "Full Stack",
-    },
-    {
-        title: "Phenotype Assessment App",
-        description: "An application to collect phenotype information from patients through a series of structured questions.",
-        tags: ["Angular", "PHP", "MySQL", "Tailwind CSS"],
-        role: "Full Stack",
-    },
-    {
-        title: "Disease Prediction Models",
-        description: "Robust and scalable ML algorithms to predict various diseases using phenotype and microbial data.",
-        tags: ["Python", "PHP", "MySQL"],
-        role: "ML",
-    },
-    {
-        title: "Gift-Scout Chatbot",
-        description: "A chatbot WordPress plugin that recommends gift products to customers using AI and Amazon product APIs.",
-        tags: ["PHP", "React", "OpenAI API", "Amazon API"],
-        role: "Full Stack",
+        title: "AI Agent & Cloud Commerce Plugin",
+        description: "Developed modular REST microservices and plugin architectures integrating external AI and cloud APIs (OpenAI, AWS) with a React frontend to deliver conversational recommendation assistants.",
+        tags: ["OpenAI API", "AWS", "React", "Node.js", "PHP"],
+        role: "AI Integration",
+        impact: "Conversational AI product discovery",
     },
 ];
 
 const roleBadgeStyle: Record<string, { bg: string; text: string; border: string }> = {
-    "Backend":    { bg: 'rgba(59, 130, 246, 0.1)',  text: '#3b82f6', border: 'rgba(59, 130, 246, 0.3)' },
-    "Full Stack": { bg: 'rgba(var(--accent-rgb), 0.1)', text: 'var(--accent)', border: 'rgba(var(--accent-rgb), 0.3)' },
-    "ML":         { bg: 'rgba(16, 185, 129, 0.1)',  text: '#10b981', border: 'rgba(16, 185, 129, 0.3)' },
+    "Distributed Systems":   { bg: 'rgba(139, 92, 246, 0.12)', text: '#8b5cf6', border: 'rgba(139, 92, 246, 0.3)' },
+    "Real-Time / Streaming": { bg: 'rgba(236, 72, 153, 0.12)', text: '#ec4899', border: 'rgba(236, 72, 153, 0.3)' },
+    "Backend":               { bg: 'rgba(59, 130, 246, 0.12)',  text: '#3b82f6', border: 'rgba(59, 130, 246, 0.3)' },
+    "Full Stack":            { bg: 'rgba(var(--accent-rgb), 0.12)', text: 'var(--accent)', border: 'rgba(var(--accent-rgb), 0.3)' },
+    "ML / Analytics":        { bg: 'rgba(16, 185, 129, 0.12)',  text: '#10b981', border: 'rgba(16, 185, 129, 0.3)' },
+    "AI Integration":        { bg: 'rgba(245, 158, 11, 0.12)', text: '#f59e0b', border: 'rgba(245, 158, 11, 0.3)' },
 };
 
 const Projects: React.FC = () => {

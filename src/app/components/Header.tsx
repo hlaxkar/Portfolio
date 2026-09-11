@@ -44,6 +44,20 @@ const Header: React.FC = () => {
                             </Link>
                         ))}
 
+                        <a
+                            href="/Harshit_Laxkar_Resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs font-semibold px-3 py-1.5 rounded-lg border transition-all hover:scale-105"
+                            style={{
+                                borderColor: 'var(--accent)',
+                                color: 'var(--accent)',
+                                backgroundColor: 'rgba(var(--accent-rgb), 0.08)',
+                            }}
+                        >
+                            Resume
+                        </a>
+
                         {/* Theme toggle */}
                         {mounted && (
                             <button
@@ -163,6 +177,20 @@ const Header: React.FC = () => {
                             {section.charAt(0).toUpperCase() + section.slice(1)}
                         </Link>
                     ))}
+                    <a
+                        href="/Harshit_Laxkar_Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setMenuOpen(false)}
+                        className="text-base font-semibold px-4 py-2.5 rounded-xl border text-center transition"
+                        style={{
+                            borderColor: 'var(--accent)',
+                            color: 'var(--accent)',
+                            backgroundColor: 'rgba(var(--accent-rgb), 0.08)',
+                        }}
+                    >
+                        View Resume
+                    </a>
                 </nav>
             </div>
         </>

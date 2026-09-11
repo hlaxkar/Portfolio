@@ -1,10 +1,10 @@
 const SEO = {
-    title: "Harshit Laxkar | Full Stack Developer Portfolio",
-    description: "Full-stack developer with expertise in React, Next.js, and modern web tools.",
+    title: "Harshit Laxkar | Software Development Engineer",
+    description: "Software Development Engineer specializing in high-throughput microservices, distributed pipelines, Kafka stream ingestion, and cloud-native systems.",
     openGraph: {
         type: 'website',
         locale: 'en_IN',
-        url: 'https://yourdomain.com/',
+        url: 'https://harshitportfolio-rose.vercel.app/',
         siteName: 'Harshit Laxkar Portfolio',
     },
 };

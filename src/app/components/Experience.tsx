@@ -3,39 +3,78 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const jobs = [
+interface Job {
+    title: string;
+    company: string;
+    location: string;
+    period: string;
+    bullets: { heading: string; text: string }[];
+    tags: string[];
+}
+
+const jobs: Job[] = [
     {
-        title: 'Backend Developer',
+        title: 'Software Development Engineer - Video Telematics & Streaming',
         company: 'Intangles',
+        location: 'Pune, India',
         period: 'November 2025 – Present',
         bullets: [
-            'Developed and maintained scalable Node.js microservices for IoT and videomatics platforms.',
-            'Processed real-time vehicle telemetry and camera data streams to detect driver behavior and road conditions.',
-            'Enabled predictive analytics and alerting systems to support large-scale fleet operations.',
+            {
+                heading: 'Distributed Event & Telemetry Pipeline',
+                text: 'Architected an extensible, vendor-agnostic microservice ingestion framework that validates, deduplicates, persists, and streams high-frequency external webhook telemetry to Apache Kafka at ~500 events/min; enabled zero-downtime onboarding of external data feeds via configuration.',
+            },
+            {
+                heading: 'Fault-Tolerant Streaming Pipeline',
+                text: 'Designed a publish-first, persist-async event processing architecture with Kafka as the durability boundary and automated event replay for fault isolation; integrated OpenTelemetry distributed tracing and metrics across microservices to optimize latency and ensure operational resilience.',
+            },
+            {
+                heading: 'Real-Time Device & Signal Monitoring Platform',
+                text: 'Owned end-to-end development of a full-stack platform (React/Angular, Node.js) processing real-time telemetry streams from 3,000+ network-connected cameras across 17 signal types; built multi-region concurrent processing (25–50 streams/sec) with automated anomaly detection and ticketing.',
+            },
+            {
+                heading: 'AI-Assisted Workflow & Reliability',
+                text: 'Accelerated component refactoring, test suite coverage (unit and integration tests), and technical documentation utilizing AI-assisted developer tooling (Cursor, GitHub Copilot) under agile pair programming practices.',
+            },
         ],
-        tags: ['Node.js', 'Microservices', 'IoT', 'Redis', 'Telemetry'],
+        tags: ['Apache Kafka', 'OpenTelemetry', 'Microservices', 'Node.js', 'Fastify', 'React', 'Redis', 'Docker'],
     },
     {
-        title: 'Associate Consultant — Full Stack Developer',
+        title: 'Associate Consultant - Full Stack Developer',
         company: 'Oodles Technologies',
+        location: 'Gurugram, India',
         period: 'June 2024 – November 2025',
         bullets: [
-            'Led the backend migration of a legacy CRM from Laravel/PostgreSQL to Node.js/MySQL, improving API response time from ~25s to 200ms.',
-            'Developed a personalized food recommendation engine using a K-Nearest Neighbors (KNN) model.',
-            'Built a PHP chatbot plugin with a React frontend, integrating OpenAI and Amazon APIs.',
+            {
+                heading: 'Enterprise Backend & API Re-architecture',
+                text: 'Led the backend migration and modernization of an enterprise CRM from legacy PHP to high-throughput Node.js microservices with MySQL; redesigned database schemas and optimized 600+ REST APIs, cutting p99 response times from 15–25s down to 200ms using Redis caching and parallel query execution.',
+            },
+            {
+                heading: 'Intelligent Analytics & Python Services',
+                text: 'Engineered a data-driven recommendation engine using Python and K-Nearest Neighbors (KNN) algorithms, optimizing memory footprint and execution latency for real-time multidimensional data analysis.',
+            },
+            {
+                heading: 'Service Integration & Engineering Best Practices',
+                text: 'Developed modular REST microservices and plugin architectures integrating external AI and cloud APIs (OpenAI, AWS); conducted rigorous code reviews, enforced architectural design patterns, and maintained comprehensive API documentation.',
+            },
         ],
-        tags: ['Node.js', 'MySQL', 'React', 'PHP', 'KNN', 'OpenAI API'],
+        tags: ['Node.js', 'MySQL', 'Redis', 'Python', 'KNN', 'OpenAI API', 'AWS', 'React'],
     },
     {
         title: 'Full Stack Developer',
         company: 'Genefitletics',
+        location: 'Remote',
         period: 'July 2023 – February 2024',
         bullets: [
-            'Developed disease prediction algorithms using microbial and phenotype data.',
-            'Designed and developed several client-facing Single Page Applications in Angular for patients and doctors.',
-            'Implemented a scalable MySQL database for large-volume biological and user data.',
+            {
+                heading: 'Analytical Data Processing',
+                text: 'Formulated algorithmic models in Python and PHP to process, normalize, and evaluate large-scale multi-variant biological and phenotypic datasets with high computational precision.',
+            },
+            {
+                heading: 'Angular Enterprise Web Applications',
+                text: 'Engineered client-facing Single Page Applications (SPAs) in Angular backed by modular RESTful APIs and relational MySQL databases, implementing responsive dashboards, state management, and role-based access control (RBAC).',
+            },
         ],
-        tags: ['Angular', 'Python', 'MySQL', 'PHP', 'Flask'],
+        tags: ['Angular', 'Python', 'PHP', 'MySQL', 'REST APIs', 'RBAC'],
     },
 ];
 
@@ -67,12 +106,22 @@ const Experience: React.FC = () => {
                             style={{ backgroundColor: 'var(--accent)', borderColor: 'var(--bg)' }}
                         />
                         <div className="card p-6 rounded-xl">
-                            <h3 className="text-xl font-bold" style={{ color: 'var(--text)' }}>{job.title}</h3>
+                            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                                <h3 className="text-xl font-bold" style={{ color: 'var(--text)' }}>{job.title}</h3>
+                                <span className="text-xs font-medium px-2.5 py-1 rounded-md self-start sm:self-auto" style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--text-muted)' }}>
+                                    {job.location}
+                                </span>
+                            </div>
                             <p className="font-semibold mb-1" style={{ color: 'var(--accent)' }}>{job.company}</p>
-                            <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>{job.period}</p>
-                            <ul className="list-disc list-inside space-y-2 mb-4" style={{ color: 'var(--text-secondary)' }}>
+                            <p className="text-xs font-mono mb-4" style={{ color: 'var(--text-muted)' }}>{job.period}</p>
+                            <ul className="space-y-2.5 mb-5 text-sm" style={{ color: 'var(--text-secondary)' }}>
                                 {job.bullets.map((bullet, i) => (
-                                    <li key={i}>{bullet}</li>
+                                    <li key={i} className="flex items-start gap-2.5">
+                                        <span className="mt-1 flex-shrink-0 text-xs" style={{ color: 'var(--accent)' }}>▸</span>
+                                        <span>
+                                            <strong style={{ color: 'var(--text)' }}>{bullet.heading}:</strong> {bullet.text}
+                                        </span>
+                                    </li>
                                 ))}
                             </ul>
                             <div className="flex flex-wrap gap-2">

@@ -179,7 +179,6 @@ main {
 }
 .bento-grid .bento-featured {
     grid-column: span 2;
-    grid-row: span 2;
 }
 @media (max-width: 1024px) {
     .bento-grid {

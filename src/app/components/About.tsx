@@ -26,29 +26,83 @@ const About: React.FC = () => {
                     transition={{ delay: 0.15, type: 'spring', stiffness: 80, damping: 20 }}
                 >
                     <p>
-                        Hello! I&apos;m Harshit, a developer driven by a passion for building innovative and efficient web applications. My journey into the world of programming started with a fascination for how technology can solve real-world problems. Today, I specialize in the full stack, from crafting intuitive user interfaces with Angular and React to engineering robust backend systems with Node.js.
+                        Hello! I&apos;m Harshit, a <strong style={{ color: 'var(--text)' }}>Software Development Engineer</strong> with nearly 3 years of experience building high-throughput microservices, distributed pipelines, and real-time telemetry monitoring systems.
                     </p>
                     <p>
-                        My experience has equipped me with a strong command over JavaScript, TypeScript, and various frameworks. I thrive on challenges, whether it&apos;s migrating a legacy CRM and slashing response times from 25 seconds to 200 milliseconds, or developing predictive models for healthcare. I&apos;m always eager to learn and apply new technologies to create seamless and impactful user experiences.
+                        Currently at <strong style={{ color: 'var(--text)' }}>Intangles</strong>, I architect event-driven ingestion frameworks streaming high-frequency telemetry into Apache Kafka, design fault-tolerant streaming pipelines with automated replay, and implement end-to-end OpenTelemetry distributed observability.
                     </p>
+                    <p>
+                        Prior to Intangles, at <strong style={{ color: 'var(--text)' }}>Oodles Technologies</strong> and <strong style={{ color: 'var(--text)' }}>Genefitletics</strong>, I led large-scale CRM modernizations (slashing p99 response times from 25s down to 200ms), engineered recommendation algorithms in Python, and built responsive enterprise Single Page Applications.
+                    </p>
+                    <div className="pt-2 flex flex-wrap gap-3">
+                        <span
+                            className="text-xs font-mono px-3 py-1.5 rounded-lg"
+                            style={{
+                                backgroundColor: 'rgba(var(--accent-rgb), 0.1)',
+                                color: 'var(--accent)',
+                                border: '1px solid rgba(var(--accent-rgb), 0.25)',
+                            }}
+                        >
+                            📍 Pune / Bangalore, India
+                        </span>
+                        <span
+                            className="text-xs font-mono px-3 py-1.5 rounded-lg"
+                            style={{
+                                backgroundColor: 'var(--bg-muted)',
+                                color: 'var(--text-secondary)',
+                                border: '1px solid var(--border)',
+                            }}
+                        >
+                            ⚡ Unix / Linux & Cloud-Native
+                        </span>
+                        <span
+                            className="text-xs font-mono px-3 py-1.5 rounded-lg"
+                            style={{
+                                backgroundColor: 'var(--bg-muted)',
+                                color: 'var(--text-secondary)',
+                                border: '1px solid var(--border)',
+                            }}
+                        >
+                            🤖 AI-Assisted Engineering (Cursor / Copilot)
+                        </span>
+                    </div>
                 </motion.div>
                 <motion.div
-                    className="md:col-span-2 flex justify-center items-center"
+                    className="md:col-span-2 flex flex-col justify-center gap-4"
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3, type: 'spring', stiffness: 80, damping: 20 }}
                 >
                     <div
-                        className="w-64 h-64 rounded-3xl relative flex items-center justify-center"
+                        className="p-5 rounded-2xl"
                         style={{
-                            background: 'linear-gradient(135deg, rgba(var(--accent-rgb), 0.1), rgba(var(--accent-rgb), 0.05))',
+                            backgroundColor: 'var(--bg-card)',
                             border: '1px solid var(--border)',
+                            boxShadow: 'var(--card-shadow)',
                         }}
                     >
-                        <svg className="w-48 h-48" style={{ color: 'var(--accent)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                        </svg>
+                        <div className="text-xs uppercase font-bold tracking-wider mb-3" style={{ color: 'var(--accent)' }}>
+                            Core Specializations
+                        </div>
+                        <ul className="space-y-2.5 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                            <li className="flex items-start gap-2">
+                                <span style={{ color: 'var(--accent)' }}>▹</span>
+                                <span><strong>Distributed Telemetry:</strong> Apache Kafka, Stream Ingestion, Pub/Sub</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span style={{ color: 'var(--accent)' }}>▹</span>
+                                <span><strong>Microservices:</strong> Fastify, Node.js, Express.js, REST APIs</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span style={{ color: 'var(--accent)' }}>▹</span>
+                                <span><strong>Observability:</strong> OpenTelemetry (Tracing, Metrics, SLA Monitoring)</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span style={{ color: 'var(--accent)' }}>▹</span>
+                                <span><strong>Full Stack:</strong> React, Angular, TypeScript, Tailwind CSS</span>
+                            </li>
+                        </ul>
                     </div>
                 </motion.div>
             </div>

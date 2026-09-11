@@ -12,8 +12,8 @@ import { ThemeProvider } from 'next-themes';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'Harshit Laxkar - Full Stack Developer',
-    description: 'Portfolio of Harshit Laxkar, a passionate Full Stack Developer specializing in the MEAN stack, Node.js, and modern web technologies.',
+    title: 'Harshit Laxkar - Software Development Engineer | Distributed Systems & Backend',
+    description: 'Portfolio of Harshit Laxkar, Software Development Engineer specializing in high-throughput microservices, distributed telemetry pipelines, Apache Kafka, OpenTelemetry, and cloud-native backend engineering.',
 };
 
 export default function RootLayout({
