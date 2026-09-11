@@ -1,39 +1,39 @@
 @import 'tailwindcss';
 
-/* ─── Light theme (default) ─── */
+/* ─── Light theme (default - Style B: Cyber Emerald & Alpine Pearl) ─── */
 :root {
-    --bg:             #f8fafb;
+    --bg:             #f9fbfa;
     --bg-card:        #ffffff;
-    --bg-muted:       #f1f5f9;
-    --accent:         #0d9488;
-    --accent-light:   #14b8a6;
-    --accent-glow:    #5eead4;
-    --accent-rgb:     13, 148, 136;
-    --text:           #1e293b;
-    --text-secondary: #475569;
-    --text-muted:     #94a3b8;
-    --border:         #e2e8f0;
-    --header-bg:      rgba(248, 250, 251, 0.8);
-    --card-shadow:    0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-    --card-shadow-hover: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.04);
+    --bg-muted:       #f0fdf4;
+    --accent:         #059669;
+    --accent-light:   #10b981;
+    --accent-glow:    #34d399;
+    --accent-rgb:     5, 150, 105;
+    --text:           #062016;
+    --text-secondary: #374151;
+    --text-muted:     #6b7280;
+    --border:         #e5e7eb;
+    --header-bg:      rgba(249, 251, 250, 0.85);
+    --card-shadow:    0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+    --card-shadow-hover: 0 10px 25px rgba(5, 150, 105, 0.08), 0 4px 10px rgba(0,0,0,0.03);
 }
 
-/* ─── Dark theme ─── */
+/* ─── Dark theme (Style B: Cyber Emerald & Deep Onyx) ─── */
 .dark {
-    --bg:             #0f172a;
-    --bg-card:        #1e293b;
-    --bg-muted:       #334155;
-    --accent:         #2dd4bf;
-    --accent-light:   #5eead4;
-    --accent-glow:    #14b8a6;
-    --accent-rgb:     45, 212, 191;
-    --text:           #f1f5f9;
+    --bg:             #060a08;
+    --bg-card:        #0d1511;
+    --bg-muted:       #14201a;
+    --accent:         #10b981;
+    --accent-light:   #34d399;
+    --accent-glow:    #6ee7b7;
+    --accent-rgb:     16, 185, 129;
+    --text:           #f0fdf4;
     --text-secondary: #cbd5e1;
-    --text-muted:     #94a3b8;
-    --border:         rgba(255, 255, 255, 0.12);
-    --header-bg:      rgba(15, 23, 42, 0.8);
-    --card-shadow:    0 1px 3px rgba(0,0,0,0.3);
-    --card-shadow-hover: 0 10px 25px rgba(0,0,0,0.4);
+    --text-muted:     #86efac;
+    --border:         rgba(52, 211, 153, 0.15);
+    --header-bg:      rgba(6, 10, 8, 0.85);
+    --card-shadow:    0 1px 3px rgba(0,0,0,0.4);
+    --card-shadow-hover: 0 10px 30px rgba(16, 185, 129, 0.15), 0 0 1px rgba(52, 211, 153, 0.3);
 }
 
 body {
@@ -113,33 +113,7 @@ body {
                 0 0 15px rgba(var(--accent-rgb), 0.2);
 }
 
-/* ─── Custom cursor ─── */
-.custom-cursor {
-    pointer-events: none;
-    position: fixed;
-    inset: 0;
-    z-index: 110;
-}
-.cursor-dot {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.8);
-    will-change: transform, opacity;
-    transition: opacity 0.2s ease;
-}
-.cursor-ring {
-    position: fixed;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 2px solid rgba(var(--accent-rgb), 0.7);
-    box-shadow: 0 0 24px rgba(var(--accent-rgb), 0.35);
-    will-change: transform, opacity;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
+
 
 /* ─── Content layer ─── */
 main {
@@ -215,18 +189,5 @@ main {
 @media (max-width: 768px) {
     .avatar-canvas {
         min-height: 280px;
-    }
-}
-
-/* Hide default cursor on devices with a precise pointer (e.g., mouse) */
-@media (pointer: fine) {
-
-    body,
-    a,
-    button,
-    input,
-    textarea,
-    select {
-        cursor: none;
     }
 }

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import Avatar3DClient from './Avatar3DClient';
+import HeroTerminal from './HeroTerminal';
 
 const roles = [
     'Software Development Engineer',
@@ -141,14 +141,14 @@ const Hero: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Right: 3D Avatar — fades in independently, doesn't block LCP */}
+                {/* Right: Live Telemetry & Systems Terminal Visualizer */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 60, damping: 20, delay: 0.5 }}
-                    className="hidden md:flex justify-center items-center"
+                    initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ type: 'spring', stiffness: 70, damping: 20, delay: 0.2 }}
+                    className="flex justify-center items-center w-full"
                 >
-                    <Avatar3DClient />
+                    <HeroTerminal />
                 </motion.div>
             </div>
         </section>
